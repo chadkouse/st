@@ -1022,7 +1022,6 @@ xloadfonts(char *fontstr, double fontsize)
 	FcPatternAddInteger(pattern, FC_SLANT, FC_SLANT_ROMAN);
 	if (xloadfont(&dc.bfont, pattern))
 		die("can't open font %s\n", fontstr);
-	/* FcPatternAddBool(pattern, FC_COLOR, FcFalse); */
 
 	FcPatternDestroy(pattern);
 }
@@ -1546,6 +1545,12 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
 
 	/* Render the glyphs. */
 	XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
+	/*
+	FcBool b = FcFalse;
+	FcPatternGetBool(specs->font->pattern, FC_COLOR, 0, &b);
+	if (!b) {
+	    XftDrawGlyphFontSpec(xw.draw, fg, specs, len);
+	}*/
 
 	/* Render underline and strikethrough. */
 	if (base.mode & ATTR_UNDERLINE) {

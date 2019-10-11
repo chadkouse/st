@@ -1022,6 +1022,7 @@ xloadfonts(char *fontstr, double fontsize)
 	FcPatternAddInteger(pattern, FC_SLANT, FC_SLANT_ROMAN);
 	if (xloadfont(&dc.bfont, pattern))
 		die("can't open font %s\n", fontstr);
+	/* FcPatternAddBool(pattern, FC_COLOR, FcFalse); */
 
 	FcPatternDestroy(pattern);
 }

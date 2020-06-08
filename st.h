@@ -133,3 +133,4 @@ extern unsigned int defaultfg;
 extern unsigned int defaultbg;
 extern float alpha;
 extern MouseKey mkeys[];
+extern void externalpipe(const Arg *arg)

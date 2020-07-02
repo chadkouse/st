@@ -108,6 +108,7 @@ static const char *colorname[] = {
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#282828",   /* 256 -> bg */
 	"#ebdbb2",   /* 257 -> fg */
+	"#c7cbc7", /* 258 -> cursor */
 	"#add8e6", /* 258 -> cursor */
 };
 
@@ -221,7 +222,7 @@ static char *copyurlcmd[] = { "/bin/sh", "-c",
     "externalpipe", NULL };
 
 static char *openticketcmd[] = { "/bin/sh", "-c",
-    "sed 's/.*│//g' | tr -d '\n' | grep -aEo '(GCIP-[0-9]*)' | uniq | tac | dmenu -i -p 'Open which ticket?' -l 10 | tr -d '\n' | xargs -I {} -r $BROWSER https://jira.incomm.com/browse/{}",
+    "sed 's/.*│//g' | tr -d '\n' | grep -aEo '(GCI[A-Z]+-[0-9]*)' | uniq | tac | dmenu -i -p 'Open which ticket?' -l 10 | tr -d '\n' | xargs -I {} -r $BROWSER https://jira.incomm.com/browse/{}",
     "externalpipe", NULL };
 
 static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
